@@ -1,6 +1,5 @@
 /// <reference types="react" />
 export * from 'axios';
-export * from 'react-toastify';
 import { ToastContainerProps } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 export declare const QT: {

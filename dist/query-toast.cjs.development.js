@@ -6,8 +6,8 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var axios = require('axios');
 var axios__default = _interopDefault(axios);
-var reactToastify = require('react-toastify');
 var React = _interopDefault(require('react'));
+var reactToastify = require('react-toastify');
 require('react-toastify/dist/ReactToastify.css');
 var Swal = _interopDefault(require('sweetalert2'));
 
@@ -247,14 +247,6 @@ Object.keys(axios).forEach(function (k) {
         enumerable: true,
         get: function () {
             return axios[k];
-        }
-    });
-});
-Object.keys(reactToastify).forEach(function (k) {
-    if (k !== 'default') Object.defineProperty(exports, k, {
-        enumerable: true,
-        get: function () {
-            return reactToastify[k];
         }
     });
 });

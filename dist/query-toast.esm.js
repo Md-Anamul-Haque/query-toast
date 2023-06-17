@@ -1,8 +1,7 @@
 import axios__default from 'axios';
 export * from 'axios';
-import { toast, ToastContainer } from 'react-toastify';
-export * from 'react-toastify';
 import React from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
 
