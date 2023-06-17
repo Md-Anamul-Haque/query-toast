@@ -239,7 +239,9 @@ var QTProvider = function QTProvider(_ref) {
   var _ref2 = configs || {},
     withCredentials = _ref2.withCredentials,
     toastContainerProps = _ref2.toastContainerProps;
-  axios__default.defaults.withCredentials = withCredentials ? withCredentials === 'yes' || withCredentials === true : false;
+  try {
+    axios__default.defaults.withCredentials = withCredentials ? withCredentials === 'yes' || withCredentials === true : false;
+  } catch (error) {}
   return React.createElement(React.Fragment, null, React.createElement(reactToastify.ToastContainer, Object.assign({}, toastContainerProps)), children);
 };
 

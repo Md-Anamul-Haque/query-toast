@@ -8,15 +8,34 @@ npm i query-toast
 ```
 
 ```tsx
-import * as React from 'react';
-import 'react-app-polyfill/ie11';
-import * as ReactDOM from 'react-dom';
-import { PUT, QT, QTProvider } from '../.';
+import { PUT, QT, QTProvider } from 'query-toast';
+
 ```
 ```tsx
-const App = () => {
+    <QTProvider>
+      <App />
+    </QTProvider>
+```
 
+```tsx
+const user = {
+  name:'Anamul Haque',
+  // ...
+}
   React.useEffect(() => {
+    QT.post({ //[get,post,put,delete]
+      url: 'https://example.com/users',
+      data: user, // or {...user}
+      cb: (res, err) => {
+        console.log(res)
+      }
+    })
+  }, [])
+```
+
+
+```tsx
+ React.useEffect(() => {
     QT.get({
       url: 'https://example.com/users',
       loadingText: "user geting",
@@ -31,15 +50,17 @@ const App = () => {
             return false
           }
         },
-      }
+      },
       config: {
-
-        Headers: AxiosHeaders,
+        // Headers: AxiosHeaders,
       }
 
     })
-  }, [])
+  }, []);
+
 ```
+
+
 ```tsx
 
   React.useEffect(() => {
@@ -60,15 +81,16 @@ const App = () => {
             return false
           }
         },
-      }
+      },
       config: {
-
-        Headers: AxiosHeaders,
+        // Headers: AxiosHeaders,
       }
 
     })
   }, [])
 ```
+
+
 ```tsx
   React.useEffect(() => {
     PUT({
@@ -88,18 +110,18 @@ const App = () => {
             return false
           }
         },
-      }
+      },
       config: {
-
-        Headers: AxiosHeaders,
+        // Headers: AxiosHeaders,
       }
 
     })
   }, [])
 ```
+
+
 ```tsx
-  React.useEffect(() => {
-    QT.delete({
+QT.delete({
       url: 'https://example.com/users',
       loadingText: "user geting",
       alertMessage: 'are you sure for delete?',
@@ -114,21 +136,12 @@ const App = () => {
             return false
           }
         },
-      }
+      },
       config: {
-
-        Headers: AxiosHeaders,
+        // Headers: AxiosHeaders,
       }
 
     })
-  }, [])
-  return (
-    <QTProvider>
-      <App />
-    </QTProvider>
-  );
-};
+  }, []);
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
-```
+  ```

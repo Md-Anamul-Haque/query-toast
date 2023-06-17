@@ -33,7 +33,11 @@ export type QTProviderProps = ({ children, configs }: {
 
 export const QTProvider: QTProviderProps = ({ children, configs }) => {
   const { withCredentials, toastContainerProps }: containerProps = configs || {}
-  axios.defaults.withCredentials = withCredentials ? withCredentials === 'yes' || withCredentials === true : false;
+  try {
+    axios.defaults.withCredentials = withCredentials ? withCredentials === 'yes' || withCredentials === true : false;
+  } catch (error) {
+
+  }
   return (
     <>
       <ToastContainer {...toastContainerProps} />
