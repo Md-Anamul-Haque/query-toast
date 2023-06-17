@@ -1,5 +1,5 @@
+/// <reference types="react" />
 export * from 'axios';
-import { ReactNode } from 'react';
 import { ToastContainerProps } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 export declare const QT: {
@@ -12,12 +12,8 @@ export declare const GET: ({ url, cb, condition, config, loadingText }: import("
 export declare const POST: ({ data, url, cb, condition, config, loadingText }: import("./types/post").postRequestProps) => void;
 export declare const PUT: ({ data, url, cb, condition, config, loadingText }: import("./types/put").putRequestProps) => void;
 export declare const DELETE: ({ url, alertMessage, cb, condition, config, loadingText }: import("./types/delete").deleteRequestProps) => void;
-declare type containerProps = {
+export declare type QTContainerProps = ({ withCredentials, toastContainerProps }: {
     withCredentials?: boolean | "yes" | "no" | undefined;
     toastContainerProps?: ToastContainerProps;
-};
-export declare type QTProviderProps = ({ children, configs }: {
-    children: ReactNode;
-    configs?: containerProps;
 }) => JSX.Element;
-export declare const QTProvider: QTProviderProps;
+export declare const QTContainer: QTContainerProps;

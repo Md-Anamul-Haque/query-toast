@@ -227,17 +227,14 @@ var POST = handlePost;
 var PUT = handlePut;
 var DELETE = handleDelete;
 // --------------------------------------------------------------
-var QTProvider = function QTProvider(_ref) {
-  var children = _ref.children,
-    configs = _ref.configs;
-  var _ref2 = configs || {},
-    withCredentials = _ref2.withCredentials,
-    toastContainerProps = _ref2.toastContainerProps;
+var QTContainer = function QTContainer(_ref) {
+  var withCredentials = _ref.withCredentials,
+    toastContainerProps = _ref.toastContainerProps;
   try {
     axios__default.defaults.withCredentials = withCredentials ? withCredentials === 'yes' || withCredentials === true : false;
   } catch (error) {}
-  return React.createElement(React.Fragment, null, React.createElement(ToastContainer, Object.assign({}, toastContainerProps)), children);
+  return React.createElement(ToastContainer, Object.assign({}, toastContainerProps));
 };
 
-export { DELETE, GET, POST, PUT, QT, QTProvider };
+export { DELETE, GET, POST, PUT, QT, QTContainer };
 //# sourceMappingURL=query-toast.esm.js.map

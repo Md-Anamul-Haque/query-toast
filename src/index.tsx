@@ -1,6 +1,6 @@
 export * from 'axios';
 import axios from 'axios';
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { ToastContainer, ToastContainerProps } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { handleDelete } from "./actions/delete";
@@ -20,28 +20,21 @@ export const PUT = handlePut;
 export const DELETE = handleDelete;
 // ----------------------------------------------
 
-type containerProps = {
+
+export type QTContainerProps = ({ withCredentials, toastContainerProps }: {
   withCredentials?: boolean | "yes" | "no" | undefined;
   toastContainerProps?: ToastContainerProps;
-}
-export type QTProviderProps = ({ children, configs }: {
-  children: ReactNode;
-  configs?: containerProps;
 }) => JSX.Element;
 
 // --------------------------------------------------------------
 
-export const QTProvider: QTProviderProps = ({ children, configs }) => {
-  const { withCredentials, toastContainerProps }: containerProps = configs || {}
+export const QTContainer: QTContainerProps = ({ withCredentials, toastContainerProps }) => {
   try {
     axios.defaults.withCredentials = withCredentials ? withCredentials === 'yes' || withCredentials === true : false;
   } catch (error) {
 
   }
   return (
-    <>
-      <ToastContainer {...toastContainerProps} />
-      {children}
-    </>
+    <ToastContainer {...toastContainerProps} />
   )
 }

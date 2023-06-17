@@ -8,13 +8,14 @@ npm i query-toast
 ```
 
 ```tsx
-import { PUT, QT, QTProvider } from 'query-toast';
+import { PUT, QT, QTContainer } from 'query-toast';
 
 ```
 ```tsx
-    <QTProvider>
+    <Provider>
+      <QTContainer />
       <App />
-    </QTProvider>
+    </Provider>
 ```
 
 ```tsx

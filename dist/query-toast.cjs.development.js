@@ -233,16 +233,13 @@ var POST = handlePost;
 var PUT = handlePut;
 var DELETE = handleDelete;
 // --------------------------------------------------------------
-var QTProvider = function QTProvider(_ref) {
-  var children = _ref.children,
-    configs = _ref.configs;
-  var _ref2 = configs || {},
-    withCredentials = _ref2.withCredentials,
-    toastContainerProps = _ref2.toastContainerProps;
+var QTContainer = function QTContainer(_ref) {
+  var withCredentials = _ref.withCredentials,
+    toastContainerProps = _ref.toastContainerProps;
   try {
     axios__default.defaults.withCredentials = withCredentials ? withCredentials === 'yes' || withCredentials === true : false;
   } catch (error) {}
-  return React.createElement(React.Fragment, null, React.createElement(reactToastify.ToastContainer, Object.assign({}, toastContainerProps)), children);
+  return React.createElement(reactToastify.ToastContainer, Object.assign({}, toastContainerProps));
 };
 
 Object.keys(axios).forEach(function (k) {
@@ -258,5 +255,5 @@ exports.GET = GET;
 exports.POST = POST;
 exports.PUT = PUT;
 exports.QT = QT;
-exports.QTProvider = QTProvider;
+exports.QTContainer = QTContainer;
 //# sourceMappingURL=query-toast.cjs.development.js.map
